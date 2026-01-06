@@ -1,10 +1,9 @@
 package com.nonthakorn.sheetwork
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+// ตรวจสอบให้แน่ใจว่า import ชื่อแพ็กเกจถูกต้องตามโปรเจกต์ของคุณ
+import com.nonthakorn.sheetwork.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // --- การจัดการ Event เมื่อกดปุ่ม ---
+        // การจัดการ Event เมื่อกดปุ่ม
         binding.myButton.setOnClickListener {
             // เมื่อกดปุ่ม ให้เปลี่ยนข้อความใน TextView
             binding.myTextView.text = "ยินดีด้วย! คุณกดปุ่มแล้ว"
