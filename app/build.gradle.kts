@@ -5,11 +5,11 @@ plugins {
 
 android {
     namespace = "com.nonthakorn.sheetwork"
-    compileSdk = 36
+    compileSdk = 36 // หรือตามที่โปรเจกต์กำหนด
 
     defaultConfig {
         applicationId = "com.nonthakorn.sheetwork"
-        minSdk = 26
+        minSdk = 26  // ยืนยันว่าเป็น 26 ตามที่คุณตั้งไว้
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
@@ -17,21 +17,20 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
-        }
-    }
+    // เพิ่มบล็อกนี้เพื่อแก้ปัญหา Inconsistent JVM-target
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
+
+    // เพิ่มบล็อกนี้เพื่อให้ Kotlin ใช้ JVM target เดียวกัน
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = "21"
+    }
+
+    // เปิดใช้งาน View Binding
+    buildFeatures {
+        viewBinding = true
     }
 }
 
